@@ -7422,6 +7422,87 @@ SOurce: www.abracon.com</description>
 </deviceset>
 </devicesets>
 </library>
+<library name="zetex">
+<description>&lt;b&gt;Zetex Power MOS FETs, Bridges, Diodes&lt;/b&gt;&lt;p&gt;
+http://www.zetex.com&lt;p&gt;
+&lt;author&gt;Created by librarian@cadsoft.de&lt;/author&gt;</description>
+<packages>
+<package name="SOT-23">
+<description>&lt;b&gt;Small Outline Transistor&lt;/b&gt;</description>
+<wire x1="-1.4224" y1="0.381" x2="1.4732" y2="0.381" width="0.1524" layer="21"/>
+<wire x1="1.4732" y1="0.381" x2="1.4732" y2="-0.381" width="0.1524" layer="21"/>
+<wire x1="1.4732" y1="-0.381" x2="-1.4224" y2="-0.381" width="0.1524" layer="21"/>
+<wire x1="-1.4224" y1="-0.381" x2="-1.4224" y2="0.381" width="0.1524" layer="21"/>
+<smd name="3" x="0.9906" y="1.016" dx="0.7874" dy="0.889" layer="1"/>
+<smd name="2" x="-0.9398" y="1.016" dx="0.7874" dy="0.889" layer="1"/>
+<smd name="1" x="0.0254" y="-1.016" dx="0.7874" dy="0.889" layer="1"/>
+<text x="-1.397" y="1.778" size="1.27" layer="27" ratio="10">&gt;VALUE</text>
+<text x="-1.397" y="3.302" size="1.27" layer="25" ratio="10">&gt;NAME</text>
+<rectangle x1="0.7874" y1="0.4318" x2="1.1684" y2="0.9398" layer="51"/>
+<rectangle x1="-1.143" y1="0.4318" x2="-0.762" y2="0.9398" layer="51"/>
+<rectangle x1="-0.1778" y1="-0.9398" x2="0.2032" y2="-0.4318" layer="51"/>
+</package>
+</packages>
+<symbols>
+<symbol name="P_MOSFET">
+<wire x1="-1.651" y1="0" x2="0" y2="0" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="-2.159" x2="0" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="-2.54" y1="-2.54" x2="-2.54" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="0" x2="0" y2="-2.159" width="0.1524" layer="94"/>
+<wire x1="1.397" y1="-0.508" x2="1.397" y2="-3.048" width="0.1524" layer="94"/>
+<wire x1="1.397" y1="-3.048" x2="0" y2="-3.048" width="0.1524" layer="94"/>
+<wire x1="-1.524" y1="2.159" x2="0" y2="2.159" width="0.1524" layer="94"/>
+<wire x1="0" y1="2.159" x2="0" y2="2.54" width="0.1524" layer="94"/>
+<wire x1="0" y1="3.048" x2="1.397" y2="3.048" width="0.1524" layer="94"/>
+<wire x1="1.397" y1="3.048" x2="1.397" y2="0.381" width="0.1524" layer="94"/>
+<wire x1="0" y1="-2.159" x2="0" y2="-2.54" width="0.1524" layer="94"/>
+<text x="2.54" y="0" size="1.778" layer="96">&gt;VALUE</text>
+<text x="2.54" y="2.54" size="1.778" layer="95">&gt;NAME</text>
+<rectangle x1="-2.032" y1="1.397" x2="-1.524" y2="2.921" layer="94"/>
+<rectangle x1="-2.032" y1="-0.762" x2="-1.524" y2="0.762" layer="94"/>
+<rectangle x1="-2.032" y1="-2.921" x2="-1.524" y2="-1.397" layer="94"/>
+<rectangle x1="0.762" y1="-0.635" x2="2.032" y2="-0.508" layer="94"/>
+<pin name="D" x="0" y="5.08" visible="off" length="short" direction="pas" rot="R270"/>
+<pin name="S" x="0" y="-5.08" visible="off" length="short" direction="pas" rot="R90"/>
+<pin name="G" x="-5.08" y="-2.54" visible="off" length="short" direction="pas"/>
+<polygon width="0.1016" layer="94">
+<vertex x="-0.127" y="0"/>
+<vertex x="-1.143" y="-0.635"/>
+<vertex x="-1.143" y="0.635"/>
+</polygon>
+<polygon width="0.1016" layer="94">
+<vertex x="1.397" y="-0.508"/>
+<vertex x="0.762" y="0.508"/>
+<vertex x="2.032" y="0.508"/>
+</polygon>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="PMOSSOT23" prefix="T" uservalue="yes">
+<description>&lt;b&gt;MOS FET&lt;/b&gt;</description>
+<gates>
+<gate name="A" symbol="P_MOSFET" x="0" y="0" swaplevel="1"/>
+</gates>
+<devices>
+<device name="" package="SOT-23">
+<connects>
+<connect gate="A" pin="D" pad="1"/>
+<connect gate="A" pin="G" pad="3"/>
+<connect gate="A" pin="S" pad="2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
 </libraries>
 <attributes>
 </attributes>
@@ -7509,9 +7590,6 @@ SOurce: www.abracon.com</description>
 <part name="GND14" library="supply1" deviceset="GND" device=""/>
 <part name="GND20" library="supply1" deviceset="GND" device=""/>
 <part name="P+3" library="supply" deviceset="+5V" device=""/>
-<part name="P+6" library="supply" deviceset="+5V" device=""/>
-<part name="P+7" library="supply" deviceset="+5V" device=""/>
-<part name="P+8" library="supply" deviceset="+5V" device=""/>
 <part name="P+9" library="supply" deviceset="+V" device=""/>
 <part name="P+10" library="supply" deviceset="+5V" device=""/>
 <part name="P+1" library="supply" deviceset="+V" device=""/>
@@ -7521,6 +7599,8 @@ SOurce: www.abracon.com</description>
 <part name="R6" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R7" library="rcl" deviceset="R-EU_" device="R0603"/>
 <part name="R8" library="rcl" deviceset="R-EU_" device="R0603"/>
+<part name="T1" library="zetex" deviceset="PMOSSOT23" device=""/>
+<part name="R9" library="rcl" deviceset="R-EU_" device="R0603"/>
 </parts>
 <sheets>
 <sheet>
@@ -7636,10 +7716,7 @@ SOurce: www.abracon.com</description>
 <instance part="GND13" gate="1" x="266.7" y="218.44"/>
 <instance part="GND14" gate="1" x="266.7" y="190.5"/>
 <instance part="GND20" gate="1" x="213.36" y="190.5"/>
-<instance part="P+3" gate="1" x="213.36" y="236.22"/>
-<instance part="P+6" gate="1" x="266.7" y="236.22"/>
-<instance part="P+7" gate="1" x="266.7" y="208.28"/>
-<instance part="P+8" gate="1" x="213.36" y="208.28"/>
+<instance part="P+3" gate="1" x="180.34" y="259.08"/>
 <instance part="P+9" gate="1" x="83.82" y="106.68"/>
 <instance part="P+10" gate="1" x="81.28" y="139.7"/>
 <instance part="P+1" gate="1" x="50.8" y="43.18"/>
@@ -7649,6 +7726,8 @@ SOurce: www.abracon.com</description>
 <instance part="R6" gate="G$1" x="190.5" y="198.12"/>
 <instance part="R7" gate="G$1" x="243.84" y="226.06"/>
 <instance part="R8" gate="G$1" x="243.84" y="198.12"/>
+<instance part="T1" gate="A" x="193.04" y="248.92" rot="R270"/>
+<instance part="R9" gate="G$1" x="185.42" y="254" rot="R180"/>
 </instances>
 <busses>
 </busses>
@@ -8234,42 +8313,6 @@ SOurce: www.abracon.com</description>
 </net>
 <net name="+5V" class="0">
 <segment>
-<pinref part="U$2" gate="G$1" pin="1"/>
-<wire x1="210.82" y1="228.6" x2="213.36" y2="228.6" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="228.6" x2="213.36" y2="233.68" width="0.1524" layer="91"/>
-<pinref part="P+3" gate="1" pin="+5V"/>
-<pinref part="JP3" gate="A" pin="1"/>
-<wire x1="220.98" y1="228.6" x2="213.36" y2="228.6" width="0.1524" layer="91"/>
-<junction x="213.36" y="228.6"/>
-</segment>
-<segment>
-<pinref part="U$5" gate="G$1" pin="1"/>
-<wire x1="264.16" y1="228.6" x2="266.7" y2="228.6" width="0.1524" layer="91"/>
-<wire x1="266.7" y1="228.6" x2="266.7" y2="233.68" width="0.1524" layer="91"/>
-<pinref part="P+6" gate="1" pin="+5V"/>
-<pinref part="JP5" gate="A" pin="1"/>
-<wire x1="274.32" y1="228.6" x2="266.7" y2="228.6" width="0.1524" layer="91"/>
-<junction x="266.7" y="228.6"/>
-</segment>
-<segment>
-<pinref part="U$6" gate="G$1" pin="1"/>
-<wire x1="264.16" y1="200.66" x2="266.7" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="266.7" y1="200.66" x2="266.7" y2="205.74" width="0.1524" layer="91"/>
-<pinref part="P+7" gate="1" pin="+5V"/>
-<pinref part="JP6" gate="A" pin="1"/>
-<wire x1="274.32" y1="200.66" x2="266.7" y2="200.66" width="0.1524" layer="91"/>
-<junction x="266.7" y="200.66"/>
-</segment>
-<segment>
-<pinref part="U$3" gate="G$1" pin="1"/>
-<wire x1="210.82" y1="200.66" x2="213.36" y2="200.66" width="0.1524" layer="91"/>
-<wire x1="213.36" y1="200.66" x2="213.36" y2="205.74" width="0.1524" layer="91"/>
-<pinref part="P+8" gate="1" pin="+5V"/>
-<pinref part="JP4" gate="A" pin="1"/>
-<wire x1="220.98" y1="200.66" x2="213.36" y2="200.66" width="0.1524" layer="91"/>
-<junction x="213.36" y="200.66"/>
-</segment>
-<segment>
 <pinref part="R4" gate="G$1" pin="1"/>
 <pinref part="P+4" gate="1" pin="+5V"/>
 <wire x1="99.06" y1="101.6" x2="104.14" y2="101.6" width="0.1524" layer="91"/>
@@ -8287,6 +8330,15 @@ SOurce: www.abracon.com</description>
 <pinref part="P+10" gate="1" pin="+5V"/>
 <wire x1="81.28" y1="137.16" x2="81.28" y2="134.62" width="0.1524" layer="91"/>
 <junction x="81.28" y="134.62"/>
+</segment>
+<segment>
+<pinref part="T1" gate="A" pin="S"/>
+<pinref part="P+3" gate="1" pin="+5V"/>
+<wire x1="187.96" y1="248.92" x2="180.34" y2="248.92" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="248.92" x2="180.34" y2="254" width="0.1524" layer="91"/>
+<pinref part="R9" gate="G$1" pin="2"/>
+<wire x1="180.34" y1="254" x2="180.34" y2="256.54" width="0.1524" layer="91"/>
+<junction x="180.34" y="254"/>
 </segment>
 </net>
 <net name="+V" class="0">
@@ -8423,6 +8475,63 @@ SOurce: www.abracon.com</description>
 <pinref part="U1" gate="G$1" pin="PB0"/>
 <wire x1="83.82" y1="193.04" x2="86.36" y2="193.04" width="0.1524" layer="91"/>
 <label x="86.36" y="193.04" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="VIR" class="0">
+<segment>
+<pinref part="T1" gate="A" pin="D"/>
+<wire x1="198.12" y1="248.92" x2="205.74" y2="248.92" width="0.1524" layer="91"/>
+<label x="205.74" y="248.92" size="1.778" layer="95"/>
+</segment>
+<segment>
+<pinref part="U$2" gate="G$1" pin="1"/>
+<wire x1="210.82" y1="228.6" x2="213.36" y2="228.6" width="0.1524" layer="91"/>
+<pinref part="JP3" gate="A" pin="1"/>
+<wire x1="220.98" y1="228.6" x2="213.36" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="228.6" x2="213.36" y2="233.68" width="0.1524" layer="91"/>
+<junction x="213.36" y="228.6"/>
+<label x="213.36" y="233.68" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="U$5" gate="G$1" pin="1"/>
+<wire x1="264.16" y1="228.6" x2="266.7" y2="228.6" width="0.1524" layer="91"/>
+<pinref part="JP5" gate="A" pin="1"/>
+<wire x1="274.32" y1="228.6" x2="266.7" y2="228.6" width="0.1524" layer="91"/>
+<wire x1="266.7" y1="228.6" x2="266.7" y2="233.68" width="0.1524" layer="91"/>
+<junction x="266.7" y="228.6"/>
+<label x="266.7" y="233.68" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="U$6" gate="G$1" pin="1"/>
+<wire x1="264.16" y1="200.66" x2="266.7" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="JP6" gate="A" pin="1"/>
+<wire x1="274.32" y1="200.66" x2="266.7" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="266.7" y1="200.66" x2="266.7" y2="205.74" width="0.1524" layer="91"/>
+<junction x="266.7" y="200.66"/>
+<label x="266.7" y="205.74" size="1.778" layer="95" rot="R90"/>
+</segment>
+<segment>
+<pinref part="U$3" gate="G$1" pin="1"/>
+<wire x1="210.82" y1="200.66" x2="213.36" y2="200.66" width="0.1524" layer="91"/>
+<pinref part="JP4" gate="A" pin="1"/>
+<wire x1="220.98" y1="200.66" x2="213.36" y2="200.66" width="0.1524" layer="91"/>
+<wire x1="213.36" y1="200.66" x2="213.36" y2="205.74" width="0.1524" layer="91"/>
+<junction x="213.36" y="200.66"/>
+<label x="213.36" y="205.74" size="1.778" layer="95" rot="R90"/>
+</segment>
+</net>
+<net name="IREN" class="0">
+<segment>
+<pinref part="T1" gate="A" pin="G"/>
+<wire x1="190.5" y1="254" x2="190.5" y2="256.54" width="0.1524" layer="91"/>
+<label x="190.5" y="256.54" size="1.778" layer="95" rot="R90"/>
+<pinref part="R9" gate="G$1" pin="1"/>
+<junction x="190.5" y="254"/>
+</segment>
+<segment>
+<pinref part="U1" gate="G$1" pin="PB11"/>
+<wire x1="83.82" y1="220.98" x2="86.36" y2="220.98" width="0.1524" layer="91"/>
+<label x="86.36" y="220.98" size="1.778" layer="95"/>
 </segment>
 </net>
 </nets>
