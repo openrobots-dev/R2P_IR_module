@@ -46,16 +46,21 @@
  * IO pins assignments.
  */
 #define LED_GPIO				GPIOB
+#define LED1_GPIO				GPIOB
 #define LED1					12
+#define LED2_GPIO				GPIOB
 #define LED2					13
+#define LED3_GPIO				GPIOB
 #define LED3					14
+#define LED4_GPIO				GPIOB
 #define LED4					15
 
 #define IREN_GPIO				GPIOB
 #define IREN					11
 
-#define SERIAL_DRIVER          SD1
-#define ADC_DRIVER             ADCD1
+#define SERIAL_DRIVER           SD1
+#define ADC_DRIVER              ADCD1
+#define ICU_DRIVER              ICUD2
 
 /*
  * I/O ports initial setup, this configuration is established soon after reset

@@ -49,4 +49,14 @@ void __early_init(void) {
  * Board-specific initialization code.
  */
 void boardInit(void) {
+
+	palClearPad(LED1_GPIO, LED1);
+	palClearPad(LED2_GPIO, LED2);
+	palClearPad(LED3_GPIO, LED3);
+	palClearPad(LED4_GPIO, LED4);
+	halPolledDelay(MS2RTT(200));
+	palSetPad(LED1_GPIO, LED1);
+	palSetPad(LED2_GPIO, LED2);
+	palSetPad(LED3_GPIO, LED3);
+	palSetPad(LED4_GPIO, LED4);
 }

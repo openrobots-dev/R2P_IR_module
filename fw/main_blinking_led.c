@@ -21,27 +21,31 @@
 #include "ch.h"
 #include "hal.h"
 
+#include "rtcan.h"
+
 /*===========================================================================*/
 /* Application threads.                                                      */
 /*===========================================================================*/
 
 /*
- * Red LED blinker thread, times are in milliseconds.
+ * LED blinker thread, times are in milliseconds.
  */
-static WORKING_AREA(waThread1, 128);
-static msg_t Thread1(void *arg) {
+static WORKING_AREA(wa_blinker_thread, 128);
+static msg_t blinker_thread(void *arg) {
 
-  (void)arg;
+	(void) arg;
+	chRegSetThreadName("blinker");
 
-  chRegSetThreadName("blinker");
-  while (TRUE) {
-    palTogglePad(LED_GPIO, LED1);
-    palTogglePad(LED_GPIO, LED2);
-    palTogglePad(LED_GPIO, LED3);
-    palTogglePad(LED_GPIO, LED4);
-    chThdSleepMilliseconds(500);
-  }
-  return 0;
+	while (TRUE) {
+		palTogglePad(LED1_GPIO, LED1);
+		palTogglePad(LED2_GPIO, LED2);
+		palTogglePad(LED3_GPIO, LED3);
+		palTogglePad(LED4_GPIO, LED4);
+
+		chThdSleepMilliseconds(500);
+	}
+
+	return 0;
 }
 
 /*
@@ -49,6 +53,7 @@ static msg_t Thread1(void *arg) {
  */
 int main(void) {
   Thread *shelltp = NULL;
+  RTCANConfig rtcan_config = {1000000, 100, 60};
 
   /*
    * System initializations.
@@ -60,10 +65,12 @@ int main(void) {
   halInit();
   chSysInit();
 
+  chThdSleepMilliseconds(100);
+
   /*
    * Creates the blinker thread.
    */
-  chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
+  chThdCreateStatic(wa_blinker_thread, sizeof(wa_blinker_thread), NORMALPRIO, blinker_thread, NULL);
 
   /*
    * Normal main() thread activity, in this demo it does nothing except

@@ -33,7 +33,7 @@
 		<link>
 			<name>Middleware</name>
 			<type>2</type>
-			<locationURI>OPENROBOTS/Middleware</locationURI>
+			<locationURI>OPENROBOTS/Middleware_v2</locationURI>
 		</link>
 		<link>
 			<name>RTCAN</name>
